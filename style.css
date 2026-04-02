@@ -1,4 +1,4 @@
-/* --- DEĞİŞKENLER (Senin Renk Paletin) --- */
+/* --- VARIABLES (Based on your palette) --- */
 :root {
     --primary-navy: #1a2a47; 
     --accent-gold: #c9a55e;  
@@ -44,7 +44,7 @@ html {
     margin: 0 auto;
 }
 
-/* --- NAVİGASYON --- */
+/* --- NAVIGATION --- */
 header {
     position: fixed;
     top: 0;
@@ -92,7 +92,7 @@ header.scrolled {
     color: var(--accent-gold);
 }
 
-/* --- HERO SECTION (NET YAZILAR) --- */
+/* --- HERO SECTION --- */
 #hero {
     height: 100vh;
     background-image: url('hero-bg.jpeg'); 
@@ -108,7 +108,7 @@ header.scrolled {
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(15, 25, 45, 0.75); /* Daha koyu filtre */
+    background: rgba(15, 25, 45, 0.75); 
 }
 
 .hero-content {
@@ -122,7 +122,7 @@ header.scrolled {
     line-height: 1.1;
     margin-bottom: 20px;
     color: #ffffff; 
-    text-shadow: 0 4px 20px rgba(0,0,0,0.8); /* Güçlü gölge */
+    text-shadow: 0 4px 20px rgba(0,0,0,0.8);
 }
 
 .hero-content p {
@@ -151,11 +151,20 @@ header.scrolled {
     color: var(--primary-navy);
 }
 
-/* --- MENÜ KARTLARI --- */
+/* --- MENU SECTION --- */
 .section-padding { padding: 100px 0; }
+.bg-navy-alt { background-color: rgba(20, 32, 55, 1); }
 .section-title { text-align: center; margin-bottom: 60px; }
 .section-title h2 { font-size: 3rem; color: var(--accent-gold); }
 .underline { width: 80px; height: 3px; background: var(--highlight-teal); margin: 15px auto 0; }
+
+.category-title {
+    color: var(--text-light);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    opacity: 0.9;
+}
 
 .menu-grid {
     display: grid;
@@ -172,14 +181,19 @@ header.scrolled {
 }
 
 .menu-card img {
-    width: 100%; height: 250px; object-fit: cover;
+    width: 100%; 
+    height: 300px; 
+    object-fit: cover; 
     border-bottom: 2px solid var(--highlight-teal);
+    display: block;
 }
 
 .menu-info { padding: 30px; text-align: center; }
+.menu-info h3 { font-size: 1.5rem; margin-bottom: 10px; color: var(--accent-gold); }
+.menu-info p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
 .price { font-size: 1.5rem; font-weight: 600; color: #fff; font-family: 'Playfair Display', serif;}
 
-/* --- YORUMLAR (SONSUZ KAYAN MARQUEE) --- */
+/* --- REVIEWS (SARI YILDIZLAR VE KAYAN MARQUEE) --- */
 .marquee-wrapper {
     overflow: hidden;
     white-space: nowrap;
@@ -198,6 +212,11 @@ header.scrolled {
     display: inline-flex;
     animation: scroll 40s linear infinite;
     gap: 30px;
+    padding-left: 30px;
+}
+
+.marquee-content:hover {
+    animation-play-state: paused; 
 }
 
 @keyframes scroll {
@@ -213,10 +232,23 @@ header.scrolled {
     white-space: normal;
 }
 
+.reviewer { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+.avatar { width: 45px; height: 45px; border-radius: 50%; background: var(--accent-gold); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--bg-dark); font-size: 1.2rem;}
+.review-card h4 { font-size: 1.1rem; color: #fff;}
+
+.stars { 
+    color: var(--accent-gold) !important; 
+    font-size: 1.2rem; 
+    margin-top: 5px;
+    display: block;
+}
+
+.review-card p { font-style: italic; color: var(--text-muted); font-size: 0.95rem; }
+
 /* --- İLETİŞİM & LOKASYON (YAN YANA DÜZEN) --- */
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Bilgisayarda tam olarak iki eşit sütun */
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
     align-items: stretch;
 }
@@ -232,7 +264,8 @@ header.scrolled {
 }
 
 .contact-info h2 { color: var(--accent-gold); margin-bottom: 20px; font-size: 2.5rem; }
-.instagram-link { color: var(--text-light); text-decoration: none; border-bottom: 1px solid var(--accent-gold); }
+.contact-info p { font-size: 1.1rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.instagram-link { display: inline-block; margin-top: 10px; color: var(--text-light); text-decoration: none; border-bottom: 1px solid var(--accent-gold); padding-bottom: 2px;}
 
 .hours-list { list-style: none; margin-top: 20px; }
 .hours-list li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--glass-border); color: var(--text-muted); }
@@ -247,13 +280,13 @@ header.scrolled {
 
 /* --- FOOTER --- */
 footer { text-align: center; padding: 40px 0; border-top: 1px solid var(--glass-border); }
-.designer { color: var(--accent-gold); font-style: italic; font-size: 12px; }
+.designer { color: var(--accent-gold); font-style: italic; font-size: 12px; margin-top: 5px; }
 
 /* --- ANİMASYONLAR --- */
 .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
 .fade-in.appear { opacity: 1; transform: translateY(0); }
 
-/* --- MOBİL UYUM (SADECE TELEFONDA ALT ALTA GEÇER) --- */
+/* --- MOBİL UYUM --- */
 @media (max-width: 992px) {
     .contact-grid { grid-template-columns: 1fr; }
     .hero-content h1 { font-size: 3rem; }
